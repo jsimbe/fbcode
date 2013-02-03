@@ -16,11 +16,15 @@ while T != 0:
 	m[0] = a
 	for i in xrange(1,k):
 		m[i] = (b * m[i - 1] + c) % r
-	while len(m) != n:
-		for i in xrange(n):
-			if(i not in m[-k:]):
+	print m
+	while idx != n:
+		for i in xrange(k):
+			if(i not in m):
 				m.append(i)
+				m = m[-k:]
 				break;
+		print idx
+		idx+=1
 	print "Case #%d: %d" % (case,m[n-1])
 	case += 1
 	T -= 1
